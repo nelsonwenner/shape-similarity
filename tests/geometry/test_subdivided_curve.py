@@ -29,3 +29,14 @@ class TestSubdividedCurve(unittest.TestCase):
         [0, 8]
       ]
     )
+
+  def test_uses_max_len_by_default(self):
+    curve = [[0, 0], [0, 0.1]]
+    self.assertEqual(
+      src.geometry.subdivided_curve(curve), 
+      [
+        [0, 0], 
+        [0, 0.05],
+        [0, 0.1],
+      ]
+    )
