@@ -23,6 +23,18 @@ def substract(point1, point2):
     the difference between two numbers.
   '''
   return [point1[0] - point2[0], point1[1] - point2[1]]
+def point_distance(point1, point2):
+  '''
+  Args:
+    point1: type array two values [x, y].
+    point2: type array two values [x, y].
+  Returns:
+    Magnitude.
+  Descriptions:
+    Calculate the distance between 2 points.
+  '''
+  return magnitude(substract(point1, point2))
+
 def extend_point_on_line(point1, point2, distance):
   '''
   Args:
