@@ -1,3 +1,4 @@
+import math
 
 def magnitude(point):
   '''
@@ -23,6 +24,7 @@ def substract(point1, point2):
     the difference between two numbers.
   '''
   return [point1[0] - point2[0], point1[1] - point2[1]]
+
 def point_distance(point1, point2):
   '''
   Args:
@@ -48,6 +50,7 @@ def curve_length(points):
   for index in range(0, len(points) - 1):
     acc_length += point_distance(points[index], points[index + 1])
   return acc_length
+
 def extend_point_on_line(point1, point2, distance):
   '''
   Args:
@@ -133,3 +136,20 @@ def rebalance_curve(curve, numPoints=50):
         point_flag = True
   new_curve.append(end_point)
   return new_curve
+
+def rotate_curve(curve, theta):
+  '''
+  Args:
+    curve: original curve
+    theta: rotation angle
+  Returns:
+    rot_curve: rotated curve
+  Descriptions:
+    Rotate the curve around the origin
+  '''
+  rot_curve = []
+  for point in range(len(curve)):
+    x_cord = math.cos(-1 * theta) * point[0] - math.sin(-1 * theta) * point[1]
+    y_cord = math.sin(-1 * theta) * point[0] + math.cos(-1 * theta) * point[1]
+    rot_curve.append([x_cord, y_cord])
+  return rot_curve
