@@ -8,3 +8,10 @@ class TestExtendPointOnLine(unittest.TestCase):
       src.geometry.extend_point_on_line(point1, point2, 5), 
       [12, 9]
     )
+  
+  def test_works_with_negative_distances(self):
+    point1, point2 = [0, 0], [8, 6]
+    self.assertEqual(
+      src.geometry.extend_point_on_line(point1, point2, -5), 
+      [4, 3]
+    )
