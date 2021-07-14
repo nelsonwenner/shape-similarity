@@ -1,3 +1,15 @@
+def magnitude(point):
+  '''
+  Args:
+    point: type array two values [x, y].
+  Returns:
+    Magnitude.
+  Descriptions:
+    The magnitude of a vector AB is the distance
+    between start point A and endpoint B.
+  '''
+  return math.sqrt(point[0]*point[0] + point[1]*point[1])
+
 def extend_point_on_line(point1, point2, distance):
   '''
   Args:
