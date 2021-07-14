@@ -35,6 +35,19 @@ def point_distance(point1, point2):
   '''
   return magnitude(substract(point1, point2))
 
+def curve_length(points):
+  '''
+  Args:
+    points: type arrays two values [[x, y], [x, y]].
+  Returns:
+    acc_length: curve length.
+  Descriptions:
+    Calculate the length of the curve.
+  '''
+  acc_length = 0
+  for index in range(0, len(points) - 1):
+    acc_length += point_distance(points[index], points[index + 1])
+  return acc_length
 def extend_point_on_line(point1, point2, distance):
   '''
   Args:
