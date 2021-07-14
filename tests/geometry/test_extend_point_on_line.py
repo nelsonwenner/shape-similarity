@@ -22,3 +22,10 @@ class TestExtendPointOnLine(unittest.TestCase):
       src.geometry.extend_point_on_line(point1, point2, 10), 
       [0, 0]
     )
+
+  def test_works_with_vertical_lines(self):
+    point1, point2 = [2, 4], [2, 6]
+    self.assertEqual(
+      src.geometry.extend_point_on_line(point1, point2, 7), 
+      [2, 13]
+    )
