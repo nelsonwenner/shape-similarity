@@ -15,3 +15,10 @@ class TestExtendPointOnLine(unittest.TestCase):
       src.geometry.extend_point_on_line(point1, point2, -5), 
       [4, 3]
     )
+
+  def test_works_when_p2_is_before_p1_in_the_line(self):
+    point1, point2 = [12, 9], [8, 6]
+    self.assertEqual(
+      src.geometry.extend_point_on_line(point1, point2, 10), 
+      [0, 0]
+    )
