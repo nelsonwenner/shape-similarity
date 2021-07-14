@@ -1,3 +1,4 @@
+
 def magnitude(point):
   '''
   Args:
@@ -10,6 +11,18 @@ def magnitude(point):
   '''
   return math.sqrt(point[0]*point[0] + point[1]*point[1])
 
+def substract(point1, point2):
+  '''
+  Args:
+    point1: type array two values [x, y].
+    point2: type array two values [x, y].
+  Returns:
+    A new point [x, y]
+  Descriptions:
+    Subtraction is the operation of taking 
+    the difference between two numbers.
+  '''
+  return [point1[0] - point2[0], point1[1] - point2[1]]
 def extend_point_on_line(point1, point2, distance):
   '''
   Args:
