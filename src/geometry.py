@@ -92,3 +92,44 @@ def subdivided_curve(curve, maxLen=0.05):
     else:
       new_curve.append(curve[idx])
   return new_curve
+
+def rebalance_curve(curve, numPoints=50):
+  '''
+  Args:
+    curve: type array two values [[x, y], [x, y]].
+    numPoints: num points
+  Returns:
+    new_curve: new curve
+  Descriptions:
+    Redraw the curve using `numPoints` points equally spaced along 
+    the length of the curve this may result in a slightly different
+    shape than the original if `numPoints` is low.
+  '''
+  new_curve = [curve[0]]
+
+  curve_len = curve_length(curve)
+  segment_len = curve_len / (numPoints - 1)
+  remaining_curve_points = curve[1:]
+  end_point = curve[len(curve) - 1]
+
+  for id in range(numPoints-2):
+    last_point = new_curve[len(new_curve) - 1]
+    remaining_distance = segment_len
+    point_flag = False
+    while not point_flag:
+      next_point_distance = point_distance(
+        last_point, remaining_curve_points[0]
+      )
+      if next_point_distance < remaining_distance:
+        remaining_distance -= next_point_distance
+        last_point = remaining_curve_points[0]
+        remaining_curve_points = remaining_curve_points[1:]
+      else:
+        next_point = extend_point_on_line(
+          last_point, remaining_curve_points[0],
+          remaining_distance - next_point_distance
+        )
+        new_curve.append(next_point)
+        point_flag = True
+  new_curve.append(end_point)
+  return new_curve
