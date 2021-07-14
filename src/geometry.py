@@ -64,3 +64,31 @@ def extend_point_on_line(point1, point2, distance):
   new_point_y = point2[1] + norm * vector[1]
   return [new_point_x, new_point_y]
 
+def subdivided_curve(curve, maxLen=0.05):
+  '''
+  Args:
+    curve: type array two values [[x, y], [x, y]].
+    maxLen: max length
+  Returns:
+    new_curve: new curve
+  Descriptions:
+    Break up long segments in the curve into 
+    smaller segments of len maxLen or smaller
+  '''
+  new_curve = [curve[0]]
+  for idx in range(1, len(curve)):
+    prev_point = new_curve[len(new_curve) - 1]
+    segment_length = point_distance(curve[idx], prev_point)
+    if segment_length > maxLen:
+      num_new_points = int(math.ceil(segment_length / maxLen))
+      new_segment_length = segment_length / num_new_points
+      for idj in range(num_new_points):
+        new_curve.append(
+          extend_point_on_line(
+            curve[idx], prev_point, 
+            -1 * new_segment_length * (idj+1)
+          )
+        )
+    else:
+      new_curve.append(curve[idx])
+  return new_curve
