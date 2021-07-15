@@ -36,7 +36,7 @@ def find_procrustes_rotation_angle(curve, relativeCurve):
     `curve` and `relativeCurve` must have the same number of points
     `curve` and `relativeCurve` should both be run through [[procrustesNormalizeCurve]] first
   Returns:
-    find_procrustes_rotation_angle: rotation_angle
+    find_procrustes_rotation_angle: the angle to rotate
   Descriptions:
     Find the angle to rotate `curve` to match the rotation
     of `relativeCurve` using procrustes analysis
@@ -47,3 +47,23 @@ def find_procrustes_rotation_angle(curve, relativeCurve):
     numerator += curve[i][1] * relativeCurve[i][0] - curve[i][0] * relativeCurve[i][1]
     denominator += curve[i][0] * relativeCurve[i][0] + curve[i][1] * relativeCurve[i][1]
   return math.atan2(numerator, denominator)
+
+'''
+from https://en.wikipedia.org/wiki/Procrustes_analysis
+'''
+def procrustes_normalize_rotation(curve, relativeCurve):
+  '''
+  Args:
+    curve: type array [[x, y]], [x, y]].
+    relativeCurve: type array [[x, y]], [x, y]].
+  Warnings:
+    `curve` and `relativeCurve` must have the same number of points
+    `curve` and `relativeCurve` should both be run through [[procrustesNormalizeCurve]] first
+  Returns:
+    procrustes_normalize_rotation: rotate
+  Descriptions:
+    Rotate `curve` to match the rotation of 
+    `relativeCurve` using procrustes analysis
+  '''
+  angle = find_procrustes_rotation_angle(curve, relativeCurve)
+  return rotate_curve(curve, angle)
