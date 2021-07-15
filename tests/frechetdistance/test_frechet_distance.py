@@ -85,3 +85,8 @@ class TestFrechetDistance(unittest.TestCase):
       round(src.frechetdistance.frechet_distance(curve1, curve2), 4), 
       121.5429
     )
+
+  def test_not_overflow_the_node_stack_if_the_curves_are_very_long(self):
+    curve1 = src.geometry.rebalance_curve([[1, 0], [4, 4]], 5000)
+    curve2 = src.geometry.rebalance_curve([[0, 0], [4, 4]], 5000)
+    self.assertEqual(src.frechetdistance.frechet_distance(curve1, curve2), 1)
