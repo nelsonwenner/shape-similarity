@@ -140,16 +140,16 @@ def rebalance_curve(curve, numPoints=50):
 def rotate_curve(curve, theta):
   '''
   Args:
-    curve: original curve
-    theta: rotation angle
+    curve: original curve, type array two values [[x, y], [x, y]].
+    theta: rotation angle type float
   Returns:
     rot_curve: rotated curve
   Descriptions:
     Rotate the curve around the origin
   '''
   rot_curve = []
-  for point in range(len(curve)):
-    x_cord = math.cos(-1 * theta) * point[0] - math.sin(-1 * theta) * point[1]
-    y_cord = math.sin(-1 * theta) * point[0] + math.cos(-1 * theta) * point[1]
+  for i in range(0, len(curve)):
+    x_cord = math.cos(-1 * theta) * curve[i][0] - math.sin(-1 * theta) * curve[i][1]
+    y_cord = math.sin(-1 * theta) * curve[i][0] + math.cos(-1 * theta) * curve[i][1]
     rot_curve.append([x_cord, y_cord])
   return rot_curve
