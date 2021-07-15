@@ -7,6 +7,15 @@ modified to be iterative and have better memory usage
 '''
 
 def frechet_distance(curve1, curve2):
+  '''
+  Args:
+    polyP: polynomial representing curve 1
+    polyQ: polynomial representing curve 2
+  Returns:
+    Frechet distance between two curves
+  Descriptions:
+    Calculate Frechet distance between two curves
+  '''
   long_curve = curve1 if len(curve1) >= len(curve2) else curve2
   short_curve = curve2 if len(curve1) >= len(curve2) else curve1
 
