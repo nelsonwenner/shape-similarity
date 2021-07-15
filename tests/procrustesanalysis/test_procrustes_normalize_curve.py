@@ -17,3 +17,7 @@ class TestProcrustesNormalizeCurve(unittest.TestCase):
       ]
     )
   
+  def test_rebalances_with_fifty_points_by_default(self):
+    curve = [[0, 0], [4, 4]]
+    result = src.procrustesanalysis.procrustes_normalize_curve(curve)
+    self.assertEqual(len(result), 50)
