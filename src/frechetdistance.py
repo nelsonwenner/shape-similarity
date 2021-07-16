@@ -1,4 +1,4 @@
-from .geometry import point_distance
+from .geometry import euclidean_distance
 
 '''
 Discrete Frechet distance between 2 curves
@@ -16,32 +16,33 @@ def frechet_distance(curve1, curve2):
   Descriptions:
     Calculate Frechet distance between two curves
   '''
-  long_curve = curve1 if len(curve1) >= len(curve2) else curve2
-  short_curve = curve2 if len(curve1) >= len(curve2) else curve1
+  
+  longcalcurve = curve1 if len(curve1) >= len(curve2) else curve2
+  shortcalcurve = curve2 if len(curve1) >= len(curve2) else curve1
 
-  prev_results_col = []
-  for i in range(0, len(long_curve)):
-    current_results_col = []
-    for j in range(0, len(short_curve)):
-      current_results_col.append(
+  prev_resultscalcol = []
+  for i in range(0, len(longcalcurve)):
+    current_resultscalcol = []
+    for j in range(0, len(shortcalcurve)):
+      current_resultscalcol.append(
         calc_value(
-          i, j, prev_results_col, 
-          current_results_col, 
-          long_curve, short_curve
+          i, j, prev_resultscalcol, 
+          current_resultscalcol, 
+          longcalcurve, shortcalcurve
         )
       )
-    prev_results_col = current_results_col
-  return prev_results_col[len(short_curve) - 1]
+    prev_resultscalcol = current_resultscalcol
+  return prev_resultscalcol[len(shortcalcurve) - 1]
 
 def calc_value(i, j, prevResultsCol, currentResultsCol, longCurve, shortCurve):
   if i == 0 and j == 0:
-    return point_distance(longCurve[0], shortCurve[0])
+    return euclidean_distance(longCurve[0], shortCurve[0])
   if i > 0 and j == 0:
-    return max(prevResultsCol[0], point_distance(longCurve[i], shortCurve[0]))
+    return max(prevResultsCol[0], euclidean_distance(longCurve[i], shortCurve[0]))
   last_result = currentResultsCol[len(currentResultsCol) - 1]
   if i == 0 and j > 0:
-    return max(last_result, point_distance(longCurve[0], shortCurve[j]))
+    return max(last_result, euclidean_distance(longCurve[0], shortCurve[j]))
   return max(
     min(prevResultsCol[j], prevResultsCol[j - 1], last_result),
-    point_distance(longCurve[i], shortCurve[j])
+    euclidean_distance(longCurve[i], shortCurve[j])
   )
