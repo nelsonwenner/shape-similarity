@@ -50,6 +50,14 @@ plt.plot(shape2[:,0], shape2[:,1], linewidth=2.0)
 plt.title(f'Shape similarity is: {similarity}', fontsize=14, fontweight='bold')
 plt.show()
 ```
+* You can further customize the precision of the shape_similarity function by changing the rotation (default 10). Increasing it will increase accuracy. You can also disable rotation correction completely (default True).
+  ```python
+  # disable rotation correction entirely
+  shape_similarity(shape1, shape2, checkRotation=False)
+
+  # higher accuracy, but slower
+  shape_similarity(shape1, shape2, rotation=30)
+  ```
 
 ## :chart_with_downwards_trend: Results
 ![export](https://user-images.githubusercontent.com/40550247/126214358-6aa995aa-15b1-4c60-9f0e-34bbef91a99b.png)
