@@ -3,7 +3,7 @@ from .frechetdistance import *
 from .geometry import *
 import math
 
-def shape_similarity(shape1, shape2, rotations=10, checkRotation=True):
+def shape_similarity(shape1, shape2, rotations=10, checkRotation=False):
   procrustes_normalized_curve1 = procrustes_normalize_curve(shape1)
   procrustes_normalized_curve2 = procrustes_normalize_curve(shape2)
   geo_avg_curve_len = math.sqrt(
