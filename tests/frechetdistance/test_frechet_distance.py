@@ -1,24 +1,24 @@
+from shapesimilarity import frechet_distance
 import unittest
-import src
 
 class TestFrechetDistance(unittest.TestCase):
   def test_is_zero_if_the_curves_are_the_same(self):
     curve1 = [[0, 0], [4, 4]]
     curve2 = [[0, 0], [4, 4]]
-    self.assertEqual(src.frechetdistance.frechet_distance(curve1, curve2), 0)
-    self.assertEqual(src.frechetdistance.frechet_distance(curve2, curve1), 0)
+    self.assertEqual(frechet_distance(curve1, curve2), 0)
+    self.assertEqual(frechet_distance(curve2, curve1), 0)
 
   def test_will_be_the_dist_of_the_starting_points_if_those_are_the_only_difference(self):
     curve1 = [[1, 0], [4, 4]]
     curve2 = [[0, 0], [4, 4]]
-    self.assertEqual(src.frechetdistance.frechet_distance(curve1, curve2), 1)
-    self.assertEqual(src.frechetdistance.frechet_distance(curve2, curve1), 1)
+    self.assertEqual(frechet_distance(curve1, curve2), 1)
+    self.assertEqual(frechet_distance(curve2, curve1), 1)
   
   def test_gives_correct_result_one(self):
     curve1 = [[1, 0], [2.4, 43], [-1, 4.3], [4, 4]]
     curve2 = [[0, 0], [14, 2.4], [4, 4]]
     self.assertEqual(
-      round(src.frechetdistance.frechet_distance(curve1, curve2), 4), 
+      round(frechet_distance(curve1, curve2), 4), 
       39.03
     )
 
@@ -57,11 +57,11 @@ class TestFrechetDistance(unittest.TestCase):
     ]
     curve2 = [[0, 0], [14, 2.4], [4, 4]]
     self.assertEqual(
-      round(src.frechetdistance.frechet_distance(curve1, curve2), 4), 
+      round(frechet_distance(curve1, curve2), 4), 
       121.54
     )
   
   def test_not_overflow_the_node_stack_if_the_curves_are_very_long(self):
     curve1 = [[x**0.2, x**0.2] for x in range(5000)]
     curve2 = [[x**0.4, x**0.4] for x in range(5000)]
-    self.assertEqual(src.frechetdistance.frechet_distance(curve1, curve2), 34.9)
+    self.assertEqual(frechet_distance(curve1, curve2), 34.9)
