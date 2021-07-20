@@ -4,7 +4,7 @@
 
 <p align="center">
   <img alt="Workflow" src="https://github.com/nelsonwenner/shape-similarity/workflows/shapesimilarity%20ci/badge.svg">
-  <img alt="Codecov" src="https://codecov.io/gh/nelsonwenner/shape-similarity/branch/master/graph/badge.svg">
+  <img alt="Codecov" src="https://codecov.io/gh/nelsonwenner/shape-similarity/branch/master/graph/badge.svg?token=AZW2BNGG4G">
 </p>
 
 ## :bulb: About
