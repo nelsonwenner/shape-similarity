@@ -2,6 +2,11 @@
   SHAPE SIMILARITY
 </h2>
 
+<p align="center">
+  <img alt="Workflow" src="https://github.com/nelsonwenner/shape-similarity/workflows/CI/badge.svg">
+  <img alt="Codecov" src="https://codecov.io/gh/nelsonwenner/shape-similarity/branch/master/graph/badge.svg">
+</p>
+
 ## :bulb: About
 The package allows you to check the similarity between two shapes/curves, using Frechet distance together with Procrustes analysis.
 Internally, `shape_similarity` works by first normalizing the curves using Procrustes analysis and then calculating Fréchet distance between the curves.
