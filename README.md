@@ -65,8 +65,11 @@ plt.show()
   ```
 
 ## :chart_with_downwards_trend: Results
-![export](https://user-images.githubusercontent.com/40550247/126214358-6aa995aa-15b1-4c60-9f0e-34bbef91a99b.png)
-![export](https://user-images.githubusercontent.com/40550247/126214579-302d9220-98ed-4823-992b-d4439145bc5a.png)
+<p align="center">
+  <img alt="plot1" src="https://user-images.githubusercontent.com/40550247/126214358-6aa995aa-15b1-4c60-9f0e-34bbef91a99b.png">
+  <img alt="plot2" src="https://user-images.githubusercontent.com/40550247/126214579-302d9220-98ed-4823-992b-d4439145bc5a.png">
+</p>
+
 ## :pushpin: Referencies
 * [Frechet distance](https://en.wikipedia.org/wiki/Fr%C3%A9chet_distance)
 * [Procrustes analysis](https://en.wikipedia.org/wiki/Procrustes_analysis)
