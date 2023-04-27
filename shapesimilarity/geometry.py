@@ -11,7 +11,7 @@ def euclidean_distance(point1, point2):
     Calculate Euclidian distance of two points in Euclidian space
   '''
 
-  return round(math.sqrt((point1[0]-point2[0])**2 + (point1[1]-point2[1])**2), 2)
+  return math.sqrt((point1[0]-point2[0])**2 + (point1[1]-point2[1])**2)
 
 def curve_length(curve):
   '''
