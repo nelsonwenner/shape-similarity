@@ -18,8 +18,8 @@ class TestFrechetDistance(unittest.TestCase):
     curve1 = [[1, 0], [2.4, 43], [-1, 4.3], [4, 4]]
     curve2 = [[0, 0], [14, 2.4], [4, 4]]
     self.assertEqual(
-      round(frechet_distance(curve1, curve2), 4), 
-      39.03
+      frechet_distance(curve1, curve2), 
+      39.03280671435248
     )
 
   def test_gives_correct_results_two(self):
@@ -57,11 +57,11 @@ class TestFrechetDistance(unittest.TestCase):
     ]
     curve2 = [[0, 0], [14, 2.4], [4, 4]]
     self.assertEqual(
-      round(frechet_distance(curve1, curve2), 4), 
-      121.54
+      frechet_distance(curve1, curve2), 
+      121.54290042104104
     )
   
   def test_not_overflow_the_node_stack_if_the_curves_are_very_long(self):
     curve1 = [[x**0.2, x**0.2] for x in range(5000)]
     curve2 = [[x**0.4, x**0.4] for x in range(5000)]
-    self.assertEqual(frechet_distance(curve1, curve2), 34.9)
+    self.assertEqual(frechet_distance(curve1, curve2), 34.89697106157821)
