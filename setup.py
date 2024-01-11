@@ -3,7 +3,7 @@ import io
 
 setup(
   name='shapesimilarity',
-  version='0.0.1',
+  version='1.0.0',
   author='Nelson Wenner',
   packages=['shapesimilarity'],
   url='https://github.com/nelsonwenner/shape-similarity',
