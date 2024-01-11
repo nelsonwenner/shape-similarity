@@ -24,13 +24,19 @@ Internally, `shape_similarity` works by first normalizing the curves using Procr
 ## :package: Installation
 1. Install with pip
 ```shell
-$ pip3 install shapesimilarity
+$ python -m pip install shapesimilarity
 ```
-2. Install from source
+2. Install from source code
 ```shell
 $ git clone https://github.com/nelsonwenner/shape-similarity.git
 
-$ pip3 install ./shape-similarity
+$ python -m pip install .
+```
+3. Run the tests
+```shell
+$ python -m pip install pytest
+
+$ python -m pytest
 ```
 
 ## :information_source: Example useage
